@@ -1,0 +1,25 @@
+<!-- <button id="btn">Generate Random URL</button> -->
+<br><br>
+<a id="link" href="" target="_blank"></a>
+
+<script>
+  const base = "http://unique-test2.app.sinorbis.com";
+  const pages = ["/live-chat-test", "/bp-123-list"]
+  const campaigns = ["Banana", "Watermelon", "Apple", "Orange", "Mango"];
+  const sources = ["Earth", "Mars", "Jupiter"];
+  
+  const element = document.getElementById("link");
+  
+  // document.getElementById("btn").addEventListener("click", randomURL);
+  
+  function randomURL(){
+    const url = base + pages[Math.floor(Math.random() * pages.length)] + "?utm_campaign=" + campaigns[Math.floor(Math.random() * campaigns.length)] + "&utm_source=" + sources[Math.floor(Math.random() * sources.length)];
+    element.setAttribute("href", url);
+    element.innerHTML = url;
+  }
+  
+  setInterval(randomURL, 500)
+  
+  
+</script>
+
