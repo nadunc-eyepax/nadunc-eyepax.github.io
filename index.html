@@ -7,13 +7,27 @@
   const pages = ["/live-chat-test", "/bp-123-list"]
   const campaigns = ["Banana", "Watermelon", "Apple", "Orange", "Mango"];
   const sources = ["Earth", "Mars", "Jupiter"];
+  const mediums = ["abc", "efg"];
+  const terms = ["123", "456"];
+  const contents = ["logo", "text"];
+
   
   const element = document.getElementById("link");
   
   // document.getElementById("btn").addEventListener("click", randomURL);
   
+  function randomValue(arr){
+	return arr[Math.floor(Math.random() * arr.length)];
+  }
+  
   function randomURL(){
-    const url = base + pages[Math.floor(Math.random() * pages.length)] + "?utm_campaign=" + campaigns[Math.floor(Math.random() * campaigns.length)] + "&utm_source=" + sources[Math.floor(Math.random() * sources.length)];
+    const url = base + randomValue(pages) 
+		+ "?utm_campaign=" + randomValue(campaigns) 
+		+ "&utm_source=" + randomValue(sources) 
+		+ "&utm_medium=" + randomValue(mediums)
+		+ "&utm_term=" + randomValue(terms)
+		+ "&utm_content=" + randomValue(contents);
+		
     element.setAttribute("href", url);
     element.innerHTML = url;
   }
